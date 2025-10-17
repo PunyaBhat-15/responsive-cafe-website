@@ -1,0 +1,467 @@
+/*importing google fonts for aethetics*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* to target all the elements * is used*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Playfair Display", serif;
+}
+
+/*root is used for "reusing" valuse without writing it again*/
+:root {
+    /* 🎨 Pastel Purple Color Palette */
+    --purple-lightest: #b89ed3;
+    --purple-lavender: #9a51df;
+    --purple-soft: #d8b4fe;
+    --purple-muted: #c084fc;
+    --purple-accent: #8040bc;
+    --primary-color: rgb(104, 28, 136);
+    --white-color: #ffffff;
+    --dark-purple: rgb(80, 34, 80);
+
+
+    /* 🔠 Font Sizes */
+    --font-size-s: 0.875rem;
+    /* 14px */
+    --font-size-m: 1rem;
+    /* 16px */
+    --font-size-l: 1.25rem;
+    /* 20px */
+    --font-size-xl: 1.5rem;
+    /* 24px */
+    --font-size-xxl: 2rem;
+    /* 32px */
+    --font-size-xxxl: 48px;
+
+    /* 🏋️ Font Weights */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+
+    /* 🧱 Border Radius */
+    --radius-s: 25px;
+    --radius-m: 50px;
+    --radius-circle: 50%;
+
+    /* 📏 Site Max Width (to ensure the website doesnt stretch too much)*/
+    --max-width: 1200px;
+}
+
+/* --------styling for whole site-------- */
+
+/* done to remove the dots hence none*/
+ul {
+    list-style: none;
+}
+
+/* no underlines on links*/
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+
+}
+
+img {
+    width: 100%;
+}
+
+.section-content {
+    margin: 0 auto; /*to stay in middle*/
+    padding: 0 20px; /*to ensure it doesnt touch edges*/
+    max-width: var(--max-width); 
+}
+
+.section-title {
+    text-align: center;
+    padding: 60px 0 10px; /*space on top and bottom*/
+    text-transform: uppercase;
+    font-size: var(--font-size-xl);
+}
+
+.section-title ::after /*unser the title*/{
+    content: "";
+    width: 80px;
+    height: 5px;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: var(--radius-circle);
+    background: #9a51df;
+}
+
+/* top part of the web page*/
+header {
+    background: var(--primary-color);
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+}
+
+/*to style navbar in header*/
+header .navbar {
+    display: flex;
+    /*to place elements side by side*/
+    align-items: center;
+    padding: 20px;
+    justify-content: space-between;
+}
+/*logo color*/
+.navbar .nav-logo .logo-text {
+    color: white;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-medium);
+}
+
+.navbar .nav-menu .nav-link {
+    padding: 10px 18px;
+    border-radius: var(--radius-m);
+    font-size: var(--font-size-m);
+    color: var(--white-color);
+    /* the menu link is white*/
+    transition: 0.5s ease; /*smooth change while hovering*/
+}
+
+.navbar .nav-menu .nav-link:hover {
+    color: var(--white-color);
+    background-color: var(--purple-accent);
+}
+/*Only shows when on phone display*/
+.navbar :where(#menu-close-button, #menu-open-button) {
+    display: none;
+}
+/*all buttons are next to other*/
+.navbar .nav-menu {
+    display: flex;
+    gap: 10px;
+}
+/*used for website background styling*/
+.hero-section {
+    min-height: 100vh;/*how tall the website should be*/
+    background: var(--purple-soft);
+}
+
+.hero-section .section-content {
+    display: flex;/*for side by side*/
+    align-items: center;
+    min-height: 100vh;
+    color: rgb(98, 42, 111);
+    justify-content: space-between; /*to keep one item to left and other to right*/
+}
+
+.hero-section .hero-details .title {
+    font-size: 48px;
+    color: purple;
+    font-family: 'Brush Script MT', cursive;
+
+}
+
+.hero-section .hero-details .subtitle {
+    font-size: xx-large;
+    max-width: 70%;
+    margin-top: 8px;
+    font-weight: var(--font-weight-medium);
+}
+
+.hero-section .hero-details .description {
+    max-width: 70%;
+    margin: 24px 0 40px;
+    font-size: var(--font-size-m);
+}
+
+.hero-section .hero-details .buttons .button {
+    padding: 10px 26px;
+    background-color: var(--purple-accent);
+    border-radius: var(--radius-m);
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-bold);
+    color: var(--white-color);
+    transition: 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.buttons { /**/
+    display: flex;
+    gap: 16px;
+    /* Adds space between buttons */
+    flex-wrap: wrap;
+    /* Allows wrapping on smaller screens, if not enough space it moves to next line */
+}
+
+.hero-section .hero-details .buttons .button:hover {
+    background-color: rgb(98, 42, 111);
+}
+/*the picture box*/
+.hero-section .hero-image-wrapper {
+    max-width: 500px;
+    width: 10000px;
+    height: 400px;
+    display: flex;
+    margin-right: 30px;
+    margin-top: 80px;
+    margin-left: 30px;
+ 
+}
+/*the actual picture*/
+.hero-section .hero-image-wrapper img {
+    border-radius: 50px;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+     border: 6px solid var(--primary-color);
+
+}
+
+
+.about-section {
+    padding: 120px 0;
+    background: #d8b4fe;
+}
+
+.about-section .section-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.about-section .about-image-wrapper .about-image {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;/*tells behaviour of image in a picture box(to crop,fill,stretch)*/
+    border-radius: var(--radius-circle);
+}
+
+.about-section .social-link-list {
+    
+    display: flex;
+    gap: 25px;
+    justify-content: center; /* 👈 This centers the icons horizontally */
+    align-items: center;     /* Optional: centers them vertically if needed */
+    width: 100%;
+
+
+}
+
+.about-section .social-link-list a {
+    display: inline-block; /*next to other*/
+}
+
+/*Menu Section*/
+.menu-section{
+    color: #cfadf1;
+    background:#3d1b5d ;
+    padding: 50px 0 100px;
+}
+.menu-section .menu-list{
+    display: flex;
+    flex-wrap: wrap;/*sit next to other*/
+   align-items: flex-start;/*items start from top*/
+    gap: 110px;
+    
+}
+.menu-section .menu-list .menu-items{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc(100% / 3 - 110px);/*takes 1/3 of the row minus the gap space*/
+}
+
+.menu-section .menu-list .menu-items .menu-image{
+ max-width: 83%;
+ aspect-ratio: 1;   
+ border-radius:var(--radius-circle) ;
+ margin-bottom: 10px;
+ margin-top: 10px;
+ object-fit: fill;
+}
+
+.menu-section .menu-list .menu-items .name{
+    margin: 12px 0;
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-medium);
+
+}
+
+.menu-section .menu-list .menu-items .text{
+    font-size: var(--font-size-m);   
+}
+/*Gallery section*/
+
+.gallery-section .gallery-items {
+  width: calc(100% / 3 - 32px);
+  height: 100%; /* Set a fixed height */
+  overflow: hidden; /*hides any unusual feature that doesn't fit*/
+  border-radius: 20px;
+}
+
+.gallery-section .gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.gallery-section{
+    padding: 50px 0 100px;
+}
+
+.gallery-section .gallery-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap:32px;
+}
+
+.gallery-section .gallery-list .gallery-items{
+    overflow: hidden;
+    border-radius: var(--radius-circle);
+    width: calc(100% / 3 - 32px);
+}
+
+.gallery-section .gallery-items .gallery-image{
+    width: 100%;
+    height: 100%;
+    cursor: zoom-in;
+
+}
+
+/*responsive media for width 1024*/
+/*changes when the screen layout is smaller*/
+@media screen and (max-width:1024px){
+    .menu-section .menu-list{
+        gap:60px;
+    }
+    .menu-section .menu-list .menu-items{
+         width: calc(100% / 3 - 60px);
+    }
+
+}
+/*responsive media for width 900*/
+/*adapting the layout when screen layout is lesser than 900px*/
+@media screen and (max-width:900px) {
+    :root {
+        --font-size-m: 1rem;
+        /* 16px */
+        --font-size-l: 1.3rem;
+        /* 20px */
+        --font-size-xl: 1.5rem;
+        /* 24px */
+        --font-size-xxl: 1.8rem;
+        /* 32px */
+    }
+
+    body.show-mobile-menu header::before {
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        backdrop-filter: blur(5px);
+        background: rgb(0, 0, 0, 0.2);
+
+    }
+
+    .navbar :where(#menu-close-button, #menu-open-button) {
+        font-size: var(--font-size-l);
+        display: block;
+    }
+   /*open close button for mobile menu*/
+    .navbar #menu-close-buttons {
+        color: #8040bc;
+        position: absolute;
+        right: 30px;
+        top: 30px;
+    }
+
+    .navbar #menu-open-button {
+        color: #8040bc;
+
+    }
+
+    .navbar .nav-menu {
+        display: block;
+        background: rgb(195, 139, 217);
+        left: -300px;
+        top: 0;
+        width: 300px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 100px;
+        position: fixed;
+        transition: left 0.2s ease;
+    }
+
+    body.show-mobile-menu .navbar .nav-menu {
+        left: 0;
+
+    }
+    /*Makes each link bigger and spaced out for easy tapping*/
+    .navbar .nav-menu .nav-link {
+        color: var(--dark-purple);
+        font-size: var(--font-size-l);
+        display: block;
+        margin-top: 17px;
+
+
+    }
+    /*Stacks image and text vertically, with image on bottom—perfect for small screens*/
+    .hero-section .section-content {
+        gap: 50px;
+        text-align: center padding 30px 20px 20px;
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .hero-section .hero-details :is(.subtitle, .description) {
+        max-width: 100%;
+
+    }
+
+    .hero-section .hero-details .buttons {
+        justify-content: center;
+    }
+    /*Shrinks the image and centers it.*/
+    .hero-section .hero-image-wrapper {
+        max-width: 350px;
+        margin-right: 0;
+        margin-left: 0;
+
+    }
+
+    .about-section .section-content{
+    gap: 70px;
+    flex-direction: column-reverse;/*stacks vertically*/
+   }
+
+ .menu-section .menu-list{
+        gap:30px;
+    }
+    .menu-section .menu-list .menu-items{
+         width: calc(100% / 1 - 30px);/* basically full width */
+    }
+
+    .menu-section .menu-list .menu-items .menu-image{
+        max-width: 200px;
+        
+    
+    }
+
+}
+
+@media screen and (max-width: 640px) {
+    .menu-section .menu-list{
+        gap: 60px;
+    }
+    .menu-section .menu-list .menu-items{
+        width: 100%;
+    }
+    
+}
